@@ -1,0 +1,569 @@
+{
+  "nav": {
+    "financialProfile": "Financial Profile",
+    "assetAllocation": "Asset Allocation",
+    "futureProjection": "Future Projection"
+  },
+  "common": {
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "year": "Year",
+    "years": "Years",
+    "currency": "¥",
+    "percent": "%",
+    "language": "Language",
+    "english": "English",
+    "chinese": "Chinese",
+    "advertisement": "Advertisement"
+  },
+  "layout": {
+    "appName": "Goalvest",
+    "appSubtitle": "Goal-Oriented Asset Planning",
+    "dataPrivacy": "💡 Data is stored locally in your browser and will not be uploaded to any server"
+  },
+  "footer": {
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "allRightsReserved": "All rights reserved."
+  },
+  "seo": {
+    "default": {
+      "title": "Goalvest - Goal-Oriented Asset Planning",
+      "description": "Smart asset allocation tool to help you create personalized investment portfolios. Supports financial profile analysis, asset allocation optimization, and future return projections."
+    },
+    "finance": {
+      "title": "Financial Profile Analysis - Goalvest",
+      "description": "Comprehensive analysis of your financial situation, including income, expenses, assets and liabilities, laying the foundation for scientific asset allocation."
+    },
+    "allocation": {
+      "title": "Asset Allocation Plan - Goalvest",
+      "description": "Generate personalized asset allocation plans based on your risk tolerance and financial goals, optimizing your investment portfolio structure."
+    },
+    "projection": {
+      "title": "Future Return Projection - Goalvest",
+      "description": "Predict future asset growth trends based on historical data and asset allocation plans, helping you achieve your financial goals."
+    },
+    "privacy": {
+      "title": "Privacy Policy - Goalvest",
+      "description": "Learn how Goalvest protects your privacy, including data collection, cookie usage, and third-party service information."
+    },
+    "terms": {
+      "title": "Terms of Service - Goalvest",
+      "description": "Goalvest terms of service, including service description, disclaimers, user responsibilities, and intellectual property information."
+    },
+    "about": {
+      "title": "About Us - Goalvest",
+      "description": "Learn about Goalvest - a goal-oriented asset planning tool to help you create personalized investment portfolios."
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Free Online Tool",
+      "title": "Smart Asset Allocation for Your Financial Goals",
+      "subtitle": "Goalvest helps you analyze your financial situation, create scientific asset allocation plans, and project your future wealth growth. All data stays in your browser - completely private and free.",
+      "getStarted": "Get Started Free",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "free": "Free Forever",
+      "noUpload": "Data Upload",
+      "tools": "Core Tools"
+    },
+    "features": {
+      "title": "Powerful Financial Tools",
+      "subtitle": "Everything you need to plan your financial future, all in one place.",
+      "financial": {
+        "title": "Financial Profile",
+        "description": "Get a complete picture of your financial health with our intuitive analysis tools.",
+        "item1": "Income and expense tracking",
+        "item2": "Savings rate analysis",
+        "item3": "Cash flow visualization"
+      },
+      "allocation": {
+        "title": "Asset Allocation",
+        "description": "Build a diversified portfolio tailored to your risk tolerance and goals.",
+        "item1": "Multiple preset templates",
+        "item2": "Custom allocation options",
+        "item3": "Expected return calculation"
+      },
+      "projection": {
+        "title": "Future Projection",
+        "description": "See how your wealth could grow over time with different strategies.",
+        "item1": "Compound/Simple interest modes",
+        "item2": "Year-by-year breakdown",
+        "item3": "Return composition analysis"
+      }
+    },
+    "why": {
+      "title": "Why Choose Goalvest?",
+      "privacy": {
+        "title": "100% Private",
+        "description": "All your data stays in your browser. We never upload or store any information on our servers."
+      },
+      "scientific": {
+        "title": "Scientific Approach",
+        "description": "Based on Modern Portfolio Theory and Lifecycle Investing principles for optimal asset allocation."
+      },
+      "free": {
+        "title": "Completely Free",
+        "description": "No hidden fees, no premium plans. All features are available to everyone at no cost."
+      },
+      "easy": {
+        "title": "Easy to Use",
+        "description": "Intuitive interface designed for everyone. No financial expertise required to get started."
+      }
+    },
+    "cta": {
+      "title": "Ready to Plan Your Financial Future?",
+      "subtitle": "Start your journey to financial freedom today. It only takes a few minutes to set up your personalized plan.",
+      "button": "Start Planning Now"
+    }
+  },
+  "about": {
+    "title": "About Goalvest",
+    "subtitle": "Goal-Oriented Asset Planning Tool",
+    "backToHome": "Back to Home",
+    "intro": {
+      "title": "Product Introduction",
+      "desc1": "Goalvest is a free online tool focused on goal-oriented asset planning. Our mission is to help every user better understand their financial situation, develop reasonable asset allocation plans, and plan for future financial goals.",
+      "desc2": "Unlike traditional financial tools, Goalvest adopts a goal-oriented design philosophy, starting from users' actual needs to provide personalized asset allocation recommendations, helping users achieve their financial freedom goals."
+    },
+    "features": {
+      "title": "Core Features",
+      "financialAnalysis": "Financial Profile Analysis",
+      "financialAnalysisDesc": "Intuitively display income, expenses, and savings to help you understand your financial health.",
+      "assetAllocation": "Asset Allocation Plan",
+      "assetAllocationDesc": "Provide asset allocation recommendations based on modern portfolio theory that suit your risk tolerance.",
+      "futureProjection": "Future Projection",
+      "futureProjectionDesc": "Simulate asset growth curves under different investment strategies to plan your financial future.",
+      "savingsEvaluation": "Savings Capacity Evaluation",
+      "savingsEvaluationDesc": "Analyze your savings rate and provide practical advice to improve your financial situation."
+    },
+    "technicalPrinciples": {
+      "title": "Technical Principles",
+      "intro": "Goalvest's asset allocation recommendations are based on the following core investment theories:",
+      "mptTitle": "Modern Portfolio Theory (MPT):",
+      "mptDesc": " Reduce risk through diversification and pursue maximum returns at a given risk level.",
+      "lifecycleTitle": "Lifecycle Investment Strategy:",
+      "lifecycleDesc": " Adjust the proportion of risky assets based on age - take more risk when young and become more conservative as you age.",
+      "goalTitle": "Goal-Oriented Planning:",
+      "goalDesc": " Start from goals and work backwards to determine required savings and investment strategies.",
+      "noteTitle": "Note:",
+      "noteDesc": " The above theories are for reference only. Actual investment decisions should consider individual circumstances and market conditions."
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "intro": "We deeply understand the sensitivity of financial data, so we have adopted the strictest privacy protection measures:",
+      "item1": "All data is stored only in your local browser",
+      "item2": "No user data is collected, uploaded, or stored on servers",
+      "item3": "No account registration required, no personal information needed",
+      "item4": "You can clear browser data at any time to delete all information"
+    },
+    "team": {
+      "title": "Our Team",
+      "intro": "Goalvest was created by a group of independent developers passionate about fintech. Our team members come from finance, technology, and product design fields, dedicated to bringing professional financial planning tools to everyone.",
+      "visionTitle": "Our Vision",
+      "visionDesc": "Enable everyone to easily conduct financial planning and achieve their financial goals. We believe that good tools should be simple to use, protect privacy, and be freely available to all."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions, suggestions, or feedback, please feel free to contact us:",
+      "general": "General Inquiries",
+      "support": "Technical Support"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdate": "Last Updated: January 2025",
+    "backToHome": "Back to Home",
+    "dataCollection": {
+      "title": "Data Collection",
+      "intro": "Goalvest is a goal-oriented asset planning tool. We take your privacy seriously and are committed to handling your data in the most transparent way.",
+      "whatWeCollect": "Data We Collect:",
+      "financialInfo": "Financial information: income, expenses, existing assets, etc.",
+      "personalSettings": "Personal settings: age, investment preferences, etc.",
+      "usagePreferences": "Usage preferences: interface theme, display mode, etc.",
+      "importantPromise": "Important Promise",
+      "promiseDesc": "All your data is stored only locally in your browser using localStorage technology. We will not upload any of your personal data to servers or third-party services. You can clear browser data at any time to delete all stored information."
+    },
+    "cookies": {
+      "title": "Cookies and Local Storage",
+      "intro": "To provide a better user experience, we use the following local storage technologies:",
+      "localStorageTitle": "localStorage:",
+      "localStorageDesc": " Used to save your financial data and settings for automatic restoration on your next visit.",
+      "sessionStorageTitle": "Session Storage:",
+      "sessionStorageDesc": " Used to temporarily save browsing status during the session.",
+      "cookiesTitle": "Cookies:",
+      "cookiesDesc": " Used to support the normal operation of third-party services (such as Google AdSense)."
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "intro": "We use the following third-party services to support application operation and improvement:",
+      "googleAdSense": "Google AdSense",
+      "adSenseDesc1": "We use Google AdSense to display ads in the application. Google AdSense may use cookies to display personalized ads. You can visit ",
+      "googleAdSettings": "Google Ads Settings",
+      "adSenseDesc2": " to manage your ad preferences.",
+      "googlePrivacyInfo": "For more information about how Google uses data, please refer to ",
+      "googlePrivacyPolicy": "Google Privacy Policy"
+    },
+    "userRights": {
+      "title": "User Rights",
+      "intro": "You have complete control over your data:",
+      "accessTitle": "Right to Access:",
+      "accessDesc": " You can view all data stored locally at any time.",
+      "deleteTitle": "Right to Delete:",
+      "deleteDesc": " You can clear browser data to delete all information.",
+      "exportTitle": "Right to Export:",
+      "exportDesc": " You can screenshot or record your planning results.",
+      "controlTitle": "Right to Control:",
+      "controlDesc": " Your data is completely under your control, with no server-side storage involved."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions or suggestions about this privacy policy, please contact us via:",
+      "email": "Email"
+    },
+    "updates": {
+      "title": "Privacy Policy Updates",
+      "desc": "We may update this privacy policy from time to time. Updated policies will be posted on this page, and we recommend checking regularly for the latest information. We will notify you within the application for significant changes."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdate": "Last Updated: January 2025",
+    "backToHome": "Back to Home",
+    "service": {
+      "title": "Service Description",
+      "intro": "Goalvest is a goal-oriented asset planning tool designed to help users with personal financial planning and asset allocation analysis. The features provided by this application include but are not limited to:",
+      "feature1": "Financial profile analysis and visualization",
+      "feature2": "Asset allocation plan recommendations",
+      "feature3": "Future financial projection and planning",
+      "feature4": "Savings capacity evaluation",
+      "freeTool": "This service is a free tool, and we reserve the right to modify or terminate the service at any time without notice."
+    },
+    "disclaimer": {
+      "title": "Important Disclaimer",
+      "notInvestmentAdvice": "This application does not provide investment advice.",
+      "notInvestmentAdviceDesc": " All information, analysis results, and asset allocation recommendations provided by Goalvest are for reference and educational purposes only and do not constitute any form of investment advice, financial advice, or professional financial consulting.",
+      "investmentRisk": "Investment involves risk, and past performance does not guarantee future returns. Before making any investment decisions, you should:",
+      "consultAdvisor": "Consult a licensed financial advisor or investment professional",
+      "understandRisk": "Fully understand the risks of relevant investment products",
+      "personalDecision": "Make decisions based on your own financial situation and risk tolerance",
+      "noLiability": "We are not liable for any direct or indirect losses resulting from the use of this application."
+    },
+    "userResponsibility": {
+      "title": "User Responsibilities",
+      "intro": "When using this service, you agree to comply with the following:",
+      "item1": "The data you enter should be true and accurate to ensure the validity of analysis results",
+      "item2": "You must not use this service for any illegal or unauthorized purposes",
+      "item3": "You must not attempt to disrupt, interfere with, or damage the normal operation of this service",
+      "item4": "You are responsible for your own account and data security",
+      "item5": "You understand and accept the limitations of this service and do not rely on it for investment decisions"
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property",
+      "intro": "Goalvest and all its content, features, and designs are protected by copyright and other intellectual property laws.",
+      "scopeTitle": "Intellectual Property Scope:",
+      "scope1": "Application name, logo, and brand image",
+      "scope2": "User interface design and visual elements",
+      "scope3": "Algorithms, calculation logic, and analysis models",
+      "scope4": "Text content, charts, and documentation",
+      "permission": "Without our written permission, you may not copy, modify, distribute, or otherwise use the above intellectual property."
+    },
+    "updates": {
+      "title": "Terms Updates",
+      "intro": "We reserve the right to modify these terms of service at any time. Modified terms will be posted on this page and will take effect immediately upon publication.",
+      "continueUse": "Continued use of this service indicates your acceptance of the modified terms. If you do not agree with the modified terms, you should stop using this service."
+    },
+    "applicableLaw": {
+      "title": "Applicable Law",
+      "desc": "These terms of service are governed by and interpreted in accordance with the laws of the People's Republic of China. Any disputes related to these terms shall be submitted to the competent people's court for resolution."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions about these terms of service, please contact us:"
+    }
+  },
+  "finance": {
+    "title": "Financial Profile",
+    "subtitle": "Enter your income and expenses to understand your savings capacity",
+    "income": {
+      "title": "Income",
+      "monthlyIncome": "Monthly Income",
+      "annualIncome": "Annual Income",
+      "equivalentTo": "Equivalent to {{mode}} income"
+    },
+    "expense": {
+      "title": "Expense",
+      "monthlyExpense": "Monthly Expense",
+      "annualExpense": "Annual Expense",
+      "equivalentTo": "Equivalent to {{mode}} expense"
+    },
+    "assets": {
+      "title": "Existing Assets",
+      "totalAssets": "Total Assets",
+      "description": "Total of deposits, investments, stocks, and all other assets",
+      "ignoreExisting": "Ignore Existing Assets",
+      "ignoreExistingDesc": "When enabled, the allocation plan is calculated based only on annual income and expenses"
+    },
+    "age": {
+      "title": "Age",
+      "currentAge": "Current Age",
+      "yearsOld": "years old",
+      "description": "Age affects the risk tolerance of asset allocation"
+    },
+    "cashflow": {
+      "title": "Cash Flow Overview",
+      "annualIncome": "Annual Income",
+      "expense": "Expense",
+      "savings": "Savings",
+      "annualSavings": "Annual Savings",
+      "monthlySavings": "Monthly Savings"
+    },
+    "savingsAnalysis": {
+      "title": "Savings Capacity Analysis",
+      "savingsRate": "Savings Rate",
+      "level": {
+        "dangerous": "Dangerous",
+        "low": "Low",
+        "healthy": "Healthy",
+        "excellent": "Excellent",
+        "outstanding": "Outstanding"
+      },
+      "tips": {
+        "dangerous": "Your savings rate is too low. Consider reducing unnecessary expenses to increase savings.",
+        "low": "Your savings rate is below average. Try to increase it to at least 20%.",
+        "healthy": "Your savings rate is healthy. Keep up the good habit!",
+        "excellent": "Your savings rate is excellent. You're on track for financial goals.",
+        "outstanding": "Your savings rate is outstanding! You're building wealth rapidly."
+      }
+    }
+  },
+  "allocation": {
+    "title": "Asset Allocation",
+    "subtitle": "Create a scientific asset allocation plan based on your annual surplus",
+    "overview": {
+      "title": "Capital Overview",
+      "annualIncome": "Annual Income",
+      "annualExpense": "Annual Expense",
+      "annualSurplus": "Annual Surplus",
+      "existingAssets": "Existing Assets",
+      "totalAssets": "Total Assets",
+      "existingAssetsReturn": "Expected Return on Existing Assets",
+      "annualSurplusReturn": "Expected Return on Annual Surplus",
+      "atRate": "at {{rate}}% annualized",
+      "existingPlusSurplus": "Existing Assets + Annual Surplus"
+    },
+    "returnFormula": {
+      "show": "View Expected Return Calculation Formula",
+      "hide": "Hide Calculation Formula",
+      "title": "Expected Annual Return Calculation",
+      "formula": "= Σ (Asset Class Ratio × Asset Class Expected Return)",
+      "total": "Total = "
+    },
+    "returnSettings": {
+      "title": "Return Rate Settings",
+      "adjust": "Adjust Return Rates",
+      "hide": "Hide",
+      "description": "Adjust the expected annual return for each asset class (for reference only)"
+    },
+    "templates": {
+      "title": "Select Allocation Plan",
+      "subtitle": "Choose an appropriate allocation plan based on your risk tolerance, or customize",
+      "conservative": {
+        "name": "Conservative",
+        "subtitle": "For risk-averse investors",
+        "description": "Focus on capital preservation with stable returns, suitable for those near retirement or with low risk tolerance"
+      },
+      "balanced": {
+        "name": "Balanced",
+        "subtitle": "For most investors",
+        "description": "Balanced equity and debt, balancing returns and risk, suitable for middle-aged people with stable income"
+      },
+      "growth": {
+        "name": "Growth",
+        "subtitle": "For young investors",
+        "description": "Pursuit of long-term growth with higher volatility, suitable for young people or those with long investment horizons"
+      },
+      "custom": {
+        "name": "Custom",
+        "subtitle": "Manual adjustment",
+        "description": "Freely adjust asset allocation ratios according to personal needs",
+        "currentCustom": "Current allocation is customized"
+      },
+      "risk": "Risk:",
+      "riskLow": "Low",
+      "riskMedium": "Medium",
+      "riskHigh": "High"
+    },
+    "details": {
+      "title": "Asset Allocation Details",
+      "totalAllocation": "Total Allocation",
+      "allocationRatio": "Allocation Ratio",
+      "risk": "Risk:",
+      "recommendedProducts": "Recommended Products",
+      "currentPlusAnnual": "Existing {{current}} + Annual {{annual}}"
+    },
+    "distribution": {
+      "title": "Allocation Distribution",
+      "amount": "Amount = Existing Asset Allocation + Annual Surplus Allocation"
+    },
+    "expectedReturn": {
+      "title": "Expected Return",
+      "annualizedReturn": "Expected Annual Return",
+      "existingAssetsReturn": "Expected Return on Existing Assets",
+      "annualSurplusReturn": "Expected Return on Annual Surplus",
+      "totalAnnualReturn": "Total Expected Annual Return"
+    },
+    "validation": {
+      "title": "Allocation Suggestions",
+      "totalNot100": "Total allocation ratio should be 100%, currently {{total}}%",
+      "cashTooLow": "Cash assets should be at least 10% to maintain liquidity",
+      "valid": "Allocation is reasonable"
+    },
+    "suggestions": {
+      "title": "Allocation Suggestions",
+      "cashLiquidity": "Cash assets should be kept at 10%-20% to ensure liquidity needs",
+      "ageRule": "Adjust risk asset ratio based on age: 100 - age = maximum equity assets",
+      "rebalance": "Regular rebalancing: Check allocation ratios quarterly, adjust when deviation exceeds 5%",
+      "longTerm": "Long-term holding: Avoid frequent trading and enjoy compound growth"
+    },
+    "assetClasses": {
+      "cash": {
+        "name": "Cash/Money Market Funds",
+        "description": "Available anytime, highest liquidity, lower returns",
+        "risk": "Very Low",
+        "return": "1.5-2.5%",
+        "products": ["Yu'e Bao", "WeChat Change", "Bank Savings", "Money Market Funds"]
+      },
+      "fixed_income": {
+        "name": "Fixed Income",
+        "description": "Bonds, bank wealth management, etc., stable returns, lower risk",
+        "risk": "Low",
+        "return": "3-4.5%",
+        "products": ["Treasury Bonds", "Bond Funds", "Bank R2 Products", "Time Deposits"]
+      },
+      "index_fund": {
+        "name": "Index Funds",
+        "description": "Track market indices, substantial long-term returns, with volatility",
+        "risk": "Medium-High",
+        "return": "6-10%",
+        "products": ["CSI 300 ETF", "CSI 500 ETF", "S&P 500 ETF", "Nasdaq 100 ETF"]
+      },
+      "stock_fund": {
+        "name": "Active Stock Funds",
+        "description": "Fund managers select stocks, pursuing excess returns, higher volatility",
+        "risk": "High",
+        "return": "8-15%",
+        "products": ["Consumer Theme", "Tech Theme", "Healthcare Theme", "New Energy Theme"]
+      },
+      "gold": {
+        "name": "Gold",
+        "description": "Safe-haven asset, hedge against inflation, low correlation with stock market",
+        "risk": "Medium",
+        "return": "3-6%",
+        "products": ["Gold ETF", "Paper Gold", "Physical Gold"]
+      },
+      "insurance": {
+        "name": "Insurance/Annuity",
+        "description": "Protection + savings, locking in long-term returns, poor liquidity",
+        "risk": "Very Low",
+        "return": "2.5-3.5%",
+        "products": ["Annuity Insurance", "Whole Life Insurance", "Universal Insurance"]
+      }
+    }
+  },
+  "projection": {
+    "title": "Future Projection",
+    "subtitle": "Predict future asset growth based on current allocation plan",
+    "config": {
+      "title": "Allocation Plan",
+      "fixedIncome": "Fixed Income",
+      "equity": "Equity",
+      "fixedIncomeDesc": "Cash + Fixed Income + Insurance",
+      "equityDesc": "Index + Stock + Gold",
+      "fixedIncomeRate": "Fixed Income Rate",
+      "equityRate": "Equity Rate",
+      "weightedAverage": "Weighted Average"
+    },
+    "rateFormula": {
+      "show": "View Return Rate Calculation Formula",
+      "hide": "Hide Calculation Formula",
+      "fixedIncomeTitle": "Fixed Income Rate Calculation",
+      "fixedIncomeFormula": "= (Cash Ratio × Cash Rate + Fixed Income Ratio × Fixed Income Rate + Insurance Ratio × Insurance Rate) ÷ Total Fixed Income Ratio",
+      "equityTitle": "Equity Rate Calculation",
+      "equityFormula": "= (Index Fund Ratio × Index Rate + Stock Fund Ratio × Stock Rate + Gold Ratio × Gold Rate) ÷ Total Equity Ratio",
+      "expectedAnnualReturn": "Expected Annual Return",
+      "formula": "= Fixed Income Rate × Fixed Income Ratio + Equity Rate × Equity Ratio = "
+    },
+    "warning": "Return rates are automatically calculated based on allocation. To adjust allocation, go to the \"Asset Allocation\" page.",
+    "settings": {
+      "title": "Projection Settings",
+      "interestMode": "Interest Mode",
+      "compound": "Compound",
+      "simple": "Simple",
+      "compoundDesc": "Compound: Returns are added to principal, earning interest on interest",
+      "simpleDesc": "Simple: Returns are not added to principal",
+      "projectionYears": "Projection Years",
+      "yearsUnit": " Years"
+    },
+    "chart": {
+      "title": "Asset Growth Curve",
+      "fixedIncome": "Fixed Income",
+      "equity": "Equity",
+      "totalAssets": "Total Assets",
+      "unit": "{{value}}0K"
+    },
+    "summary": {
+      "initialInvestment": "Initial Investment",
+      "initialInvestmentDesc": "Existing Investable Assets",
+      "annualAddition": "Annual Addition",
+      "annualAdditionDesc": "Fixed {{fixed}} + Equity {{equity}}",
+      "projectionYears": "{{years}} Years Projection",
+      "investmentReturn": "Investment Return"
+    },
+    "details": {
+      "title": "Annual Details",
+      "calculationNote": "Calculation Notes",
+      "current": "Current",
+      "lastYearEndFixed": "Last year end fixed total",
+      "lastYearEndEquity": "Last year end equity total",
+      "yearStart": "Year Start",
+      "return": "Return",
+      "newAddition": "New Addition",
+      "yearStartFixed": "Year Start Fixed:",
+      "fixedReturn": "Fixed Return:",
+      "yearStartEquity": "Year Start Equity:",
+      "equityReturn": "Equity Return:",
+      "yearEndTotal": "Year End Total:",
+      "year": "Year",
+      "age": "Age",
+      "yearStartFixedShort": "Start Fixed",
+      "fixedReturnShort": "Fixed Return",
+      "yearStartEquityShort": "Start Equity",
+      "equityReturnShort": "Equity Return",
+      "yearEndTotalShort": "Year End Total"
+    },
+    "analysis": {
+      "title": "Return Composition Analysis",
+      "principalVsReturn": "Principal vs Return",
+      "principal": "Principal",
+      "return": "Return",
+      "initial": "Initial",
+      "afterYears": "{{years}} Years Asset Composition",
+      "principalInvested": "Principal Invested",
+      "investmentReturn": "Investment Return",
+      "fixedIncome": "Fixed Income",
+      "equityInvestment": "Equity Investment",
+      "proportion": "Proportion"
+    },
+    "advice": {
+      "title": "Investment Advice",
+      "fixedStability": "Fixed income portion grows steadily, suitable as the \"ballast\" of the asset portfolio",
+      "equityLongTerm": "Equity investments have higher long-term returns but require bearing short-term volatility, recommended to hold for 5+ years",
+      "ageAdjustment": "As you age, gradually reduce equity ratio and increase fixed income ratio",
+      "annualReview": "Review allocation annually and adjust based on market conditions and personal goals"
+    }
+  }
+}

@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>目标规划报告 - Goalvest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; }
+
+    :root {
+      --bg: #f7f5ef;
+      --bg-sub: #eeecdf;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --border: #e5e7eb;
+      --accent: #b8860b;
+      --accent-light: #fef3c7;
+      --accent-soft: #fdf6e3;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --info: #2563eb;
+      --info-light: #dbeafe;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    }
+
+    .dark {
+      --bg: #0c1222;
+      --bg-sub: #111a2e;
+      --card-bg: #1a2332;
+      --text: #e8edf5;
+      --text-secondary: #8b9ab5;
+      --text-muted: #5a6a82;
+      --border: #2a3548;
+      --accent: #f0c040;
+      --accent-light: #3d3010;
+      --accent-soft: #2a2210;
+      --success: #4ade80;
+      --success-light: #0d3320;
+      --danger: #f87171;
+      --danger-light: #3d1515;
+      --info: #60a5fa;
+      --info-light: #1a2e4a;
+      --purple: #a78bfa;
+      --purple-light: #2a1f4a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      margin: 0;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .text-secondary { color: var(--text-secondary); }
+    .text-muted { color: var(--text-muted); }
+
+    .metric-card {
+      padding: 20px;
+      border-radius: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .progress-track {
+      height: 12px;
+      border-radius: 6px;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeUp 0.6s ease-out forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.32s; }
+    .delay-5 { animation-delay: 0.40s; }
+    .delay-6 { animation-delay: 0.48s; }
+    .delay-7 { animation-delay: 0.56s; }
+    .delay-8 { animation-delay: 0.64s; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .section-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 19px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .milestone-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .alloc-bar {
+      display: flex;
+      height: 14px;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+    .alloc-bar > div {
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    table { border-collapse: collapse; }
+    th, td { text-align: left; }
+
+    @media print {
+      body { background: white !important; color: black !important; }
+      .card { box-shadow: none !important; border: 1px solid #ddd !important; }
+      .no-print { display: none !important; }
+    }
+
+    @media (max-width: 640px) {
+      .metric-card { padding: 14px; }
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+  <div class="fixed top-4 right-4 z-50 no-print">
+    <button id="themeToggle" onclick="toggleTheme()" class="w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg border cursor-pointer" style="background:var(--card-bg);border-color:var(--border)">🌙</button>
+  </div>
+
+  <div class="max-w-6xl mx-auto space-y-6">
+
+    <div class="text-center pt-8 pb-4 animate-in">
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6" style="background:var(--accent-light);border:1px solid var(--accent)">
+        <span class="text-xl">🎯</span>
+        <span class="font-bold" style="color:var(--accent)">GOALVEST 目标规划报告</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-3">多目标资产规划方案</h1>
+      <p class="text-base text-secondary">基于科学投资理论，为您量身定制的财务规划</p>
+      <p class="text-sm mt-2 text-muted">报告日期：2026年6月2日 · 数据来源：Goalvest</p>
+    </div>
+
+    <div id="overviewSection" class="card p-6 animate-in delay-1"></div>
+
+    <div id="actionSection" class="card p-6 animate-in delay-2"></div>
+
+    <div id="phaseSection" class="card p-6 animate-in delay-3"></div>
+
+    <div id="timelineSection" class="card p-6 animate-in delay-4">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="section-icon" style="background:var(--accent-light)">📈</div>
+        <div>
+          <h2 class="text-xl font-bold">资金积累时间轴</h2>
+          <p class="text-xs text-muted">各目标资金随年份增长曲线（含现有资产复利）</p>
+        </div>
+      </div>
+      <div id="timelineChart" style="height:420px;width:100%"></div>
+      <div id="timelineSummary" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5"></div>
+    </div>
+
+    <div id="prioritySection" class="card p-6 animate-in delay-5"></div>
+
+    <div id="strategySection" class="card p-6 animate-in delay-6"></div>
+
+    <div id="combinedSection" class="card p-6 animate-in delay-7">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="section-icon" style="background:var(--accent-light)">🥧</div>
+        <div>
+          <h2 class="text-xl font-bold">综合资产配置建议</h2>
+          <p class="text-xs text-muted">按目标金额加权计算的整体配置比例</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <div id="combinedChart" style="height:300px;width:100%"></div>
+        <div id="combinedDetail"></div>
+      </div>
+    </div>
+
+    <div id="milestoneSection" class="card p-6 animate-in delay-8"></div>
+
+    <div class="card p-6 animate-in delay-8">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="section-icon" style="background:var(--purple-light)">📚</div>
+        <div>
+          <h2 class="text-xl font-bold">经济学理论基础</h2>
+          <p class="text-xs text-muted">本报告基于以下经典投资学理论</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+          <p class="font-bold mb-2">🕐 时间跨度匹配原理</p>
+          <p class="text-sm text-secondary">投资期限越长，可承受的风险越高。短期资金配置低风险资产保本，长期资金配置高收益资产增值。</p>
+          <div class="mt-3 p-2 rounded-lg text-xs font-mono" style="background:var(--card-bg);color:var(--accent)">权益比例 ≈ min(80%, (年限-3) × 5%)</div>
+        </div>
+        <div class="p-5 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+          <p class="font-bold mb-2">🎯 目标驱动投资理论</p>
+          <p class="text-sm text-secondary">根据目标的重要性、紧迫性和灵活性，动态调整资金分配优先级，确保刚性需求优先满足。</p>
+          <div class="mt-3 p-2 rounded-lg text-xs font-mono" style="background:var(--card-bg);color:var(--accent)">优先级：刚性 > 可调 > 灵活</div>
+        </div>
+        <div class="p-5 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+          <p class="font-bold mb-2">💵 4%法则（Trinity Study）</p>
+          <p class="text-sm text-secondary">退休时每年安全提取4%资产，组合可维持30年不枯竭。是退休规划的经典参考标准。</p>
+          <div class="mt-3 p-2 rounded-lg text-xs font-mono" style="background:var(--card-bg);color:var(--accent)">退休金 = 年支出 ÷ 4% = 120,000 ÷ 4% = 300万</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-sm py-8 text-muted">
+      <p>⚠️ 本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+      <p class="mt-1">Generated by <strong style="color:var(--accent)">Goalvest</strong> · 目标导向型资产规划工具</p>
+    </div>
+  </div>
+
+<script>
+const DATA = {
+  monthlyIncome: 25000,
+  monthlyExpense: 10000,
+  currentAssets: 300000,
+  goals: [
+    {
+      id: 'house', name: '购房首付', icon: '🏠',
+      targetAmount: 600000, years: 5, annualReturn: 0.035,
+      riskLevel: '低风险', riskColor: '#2563eb', riskDots: 1,
+      priority: 1, flexibility: '刚性',
+      strategy: '存款/货基/短债',
+      allocation: { cash: 40, bond: 50, equity: 10 },
+      products: ['大额存单', '国债逆回购', '纯债基金', '银行R2理财'],
+    },
+    {
+      id: 'education', name: '子女教育', icon: '🎓',
+      targetAmount: 1500000, years: 12, annualReturn: 0.06,
+      riskLevel: '中高风险', riskColor: '#b8860b', riskDots: 3,
+      priority: 2, flexibility: '刚性',
+      strategy: '股债平衡',
+      allocation: { cash: 15, bond: 35, equity: 50 },
+      products: ['沪深300ETF', '中证500ETF', '纯债基金', '平衡型基金'],
+    },
+    {
+      id: 'retirement', name: '提前退休', icon: '🏖️',
+      targetAmount: 3000000, years: 25, annualReturn: 0.08,
+      riskLevel: '高风险', riskColor: '#dc2626', riskDots: 4,
+      priority: 3, flexibility: '可调整',
+      strategy: '指数基金/股基',
+      allocation: { cash: 5, bond: 20, equity: 75 },
+      products: ['沪深300ETF', '标普500ETF', '科技主题基金', '消费主题基金'],
+    },
+  ]
+};
+
+const monthlySavings = DATA.monthlyIncome - DATA.monthlyExpense;
+
+function calcMonthlySaving(target, years, rate) {
+  const r = rate / 12;
+  const n = years * 12;
+  if (r === 0) return target / n;
+  return target / ((Math.pow(1 + r, n) - 1) / r);
+}
+
+function calcFV(principal, years, rate) {
+  return principal * Math.pow(1 + rate, years);
+}
+
+function allocateAssets(goals, totalAssets) {
+  let remaining = totalAssets;
+  const sorted = [...goals].sort((a, b) => a.priority - b.priority);
+  const result = {};
+  sorted.forEach(g => {
+    const allocated = Math.min(remaining, g.targetAmount);
+    result[g.id] = allocated;
+    remaining -= allocated;
+  });
+  return result;
+}
+
+const assetAllocation = allocateAssets(DATA.goals, DATA.currentAssets);
+
+DATA.goals.forEach(g => {
+  g.allocatedAssets = assetAllocation[g.id] || 0;
+  g.fvOfAssets = calcFV(g.allocatedAssets, g.years, g.annualReturn);
+  g.remainingTarget = Math.max(0, g.targetAmount - g.fvOfAssets);
+  g.monthlyRequired = Math.round(calcMonthlySaving(g.remainingTarget, g.years, g.annualReturn));
+  if (g.remainingTarget <= 0) g.monthlyRequired = 0;
+});
+
+const totalMonthlyRequired = DATA.goals.reduce((s, g) => s + g.monthlyRequired, 0);
+const gap = monthlySavings - totalMonthlyRequired;
+const isFeasible = gap >= 0;
+
+function simulateAccumulation(goal) {
+  const r = goal.annualReturn / 12;
+  const n = goal.years * 12;
+  let balance = goal.allocatedAssets;
+  const result = [Math.round(balance)];
+  for (let i = 1; i <= n; i++) {
+    balance = balance * (1 + r) + goal.monthlyRequired;
+    if (i % 12 === 0) result.push(Math.round(balance));
+  }
+  return result;
+}
+
+DATA.goals.forEach(g => {
+  g.accumulation = simulateAccumulation(g);
+});
+
+function simulatePhased() {
+  const goals = DATA.goals.map(g => ({
+    ...g,
+    balance: g.allocatedAssets,
+    monthlyAlloc: g.monthlyRequired,
+    completed: false,
+    completedMonth: null,
+  }));
+
+  let surplus = monthlySavings - goals.reduce((s, g) => s + g.monthlyRequired, 0);
+  if (surplus > 0) {
+    const lowest = goals.reduce((a, b) => a.priority > b.priority ? a : b);
+    lowest.monthlyAlloc += surplus;
+  }
+
+  const yearlyData = [];
+  const totalMonths = 25 * 12;
+
+  for (let month = 1; month <= totalMonths; month++) {
+    let freed = 0;
+    goals.forEach(g => {
+      if (g.completed) return;
+      g.balance = g.balance * (1 + g.annualReturn / 12) + g.monthlyAlloc;
+      if (g.balance >= g.targetAmount) {
+        g.completed = true;
+        g.completedMonth = month;
+        freed += g.monthlyAlloc;
+        g.balance = g.targetAmount;
+      }
+    });
+
+    if (freed > 0) {
+      const active = goals.filter(g => !g.completed).sort((a, b) => b.priority - a.priority);
+      if (active.length > 0) active[0].monthlyAlloc += freed;
+    }
+
+    if (month % 12 === 0) {
+      const year = month / 12;
+      yearlyData.push({
+        year,
+        goals: goals.map(g => ({
+          id: g.id, name: g.name, icon: g.icon,
+          balance: Math.round(g.balance),
+          completed: g.completed,
+          completedMonth: g.completedMonth,
+          monthlyAlloc: g.monthlyAlloc,
+        })),
+        totalWealth: Math.round(goals.reduce((s, g) => s + (g.completed ? 0 : g.balance), 0)),
+      });
+    }
+  }
+
+  return { yearlyData, goals };
+}
+
+const phasedResult = simulatePhased();
+
+function fmt(n) {
+  if (n >= 10000) return (n / 10000).toFixed(n >= 100000 ? 0 : 1) + '万';
+  return n.toLocaleString();
+}
+
+function fmtFull(n) {
+  return '¥' + n.toLocaleString();
+}
+
+function renderOverview() {
+  const el = document.getElementById('overviewSection');
+  const savingsRate = ((monthlySavings / DATA.monthlyIncome) * 100).toFixed(0);
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">💰</div>
+      <div>
+        <h2 class="text-xl font-bold">资金概览</h2>
+        <p class="text-xs text-muted">您的财务基础数据与现有资产分配</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-5">
+      <div class="metric-card" style="background:var(--accent-light);border:1px solid var(--accent)">
+        <p class="text-xs font-medium text-muted">月收入</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--accent)">${fmtFull(DATA.monthlyIncome)}</p>
+        <p class="text-[10px] mt-1 text-muted">税后稳定收入</p>
+      </div>
+      <div class="metric-card" style="background:var(--danger-light);border:1px solid var(--danger)">
+        <p class="text-xs font-medium text-muted">月支出</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--danger)">${fmtFull(DATA.monthlyExpense)}</p>
+        <p class="text-[10px] mt-1 text-muted">固定生活开支</p>
+      </div>
+      <div class="metric-card" style="background:var(--success-light);border:1px solid var(--success)">
+        <p class="text-xs font-medium text-muted">月可储蓄</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--success)">${fmtFull(monthlySavings)}</p>
+        <p class="text-[10px] mt-1 text-muted">收入 − 支出</p>
+      </div>
+      <div class="metric-card" style="background:var(--info-light);border:1px solid var(--info)">
+        <p class="text-xs font-medium text-muted">现有资产</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--info)">${fmtFull(DATA.currentAssets)}</p>
+        <p class="text-[10px] mt-1 text-muted">按优先级分配至目标</p>
+      </div>
+      <div class="metric-card" style="background:var(--purple-light);border:1px solid var(--purple)">
+        <p class="text-xs font-medium text-muted">储蓄率</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--purple)">${savingsRate}%</p>
+        <p class="text-[10px] mt-1 text-muted">高于30%健康线 ✓</p>
+      </div>
+    </div>
+    <div class="p-4 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+      <p class="text-sm font-semibold mb-3">📦 现有资产分配（按优先级瀑布分配）</p>
+      <div class="space-y-2">
+        ${DATA.goals.map(g => {
+          const pct = DATA.currentAssets > 0 ? ((g.allocatedAssets / DATA.currentAssets) * 100).toFixed(0) : 0;
+          return `
+          <div class="flex items-center gap-3">
+            <span class="text-lg">${g.icon}</span>
+            <div class="flex-1">
+              <div class="flex justify-between text-sm mb-1">
+                <span class="font-medium">${g.name}</span>
+                <span style="color:var(--accent)">${fmtFull(g.allocatedAssets)}（${pct}%）→ ${g.years}年后增值至 ${fmtFull(Math.round(g.fvOfAssets))}</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:${pct}%;background:${g.riskColor}"></div>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+      <p class="text-xs text-muted mt-3">💡 30万现有资产全部优先分配至购房首付（P1），5年后按3.5%复利增值至约 ${fmtFull(Math.round(DATA.goals[0].fvOfAssets))}，减少每月储蓄压力</p>
+    </div>
+  `;
+}
+
+function renderAction() {
+  const el = document.getElementById('actionSection');
+  const rows = DATA.goals.map(g => {
+    const dots = Array.from({length: 5}, (_, i) =>
+      `<div style="width:8px;height:8px;border-radius:50%;background:${i < g.riskDots ? g.riskColor : 'var(--border)'}"></div>`
+    ).join('');
+    return `
+    <tr style="border-bottom:1px solid var(--border)">
+      <td class="py-4 px-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">${g.icon}</span>
+          <div>
+            <p class="font-semibold">${g.name}</p>
+            <p class="text-xs text-muted">${g.years}年后 · ${g.flexibility}</p>
+          </div>
+        </div>
+      </td>
+      <td class="text-center py-4 px-3 font-bold">${fmt(g.targetAmount)}</td>
+      <td class="text-center py-4 px-3 text-secondary">${g.years}年</td>
+      <td class="text-center py-4 px-3 text-secondary">${(g.annualReturn * 100).toFixed(1)}%</td>
+      <td class="text-center py-4 px-3 text-secondary">${fmtFull(Math.round(g.fvOfAssets))}</td>
+      <td class="text-center py-4 px-3 font-bold" style="color:var(--accent)">${fmtFull(g.monthlyRequired)}</td>
+      <td class="text-center py-4 px-3">
+        <div class="flex items-center justify-center gap-1">${dots}</div>
+        <p class="text-xs mt-1" style="color:${g.riskColor}">${g.riskLevel}</p>
+      </td>
+    </tr>`;
+  }).join('');
+
+  const totalTarget = DATA.goals.reduce((s, g) => s + g.targetAmount, 0);
+  const totalFV = DATA.goals.reduce((s, g) => s + g.fvOfAssets, 0);
+
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">📋</div>
+      <div>
+        <h2 class="text-xl font-bold">每月行动总结</h2>
+        <p class="text-xs text-muted">年金公式计算每月储蓄需求（已扣除现有资产复利增值）</p>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm" style="min-width:700px">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border)">
+            <th class="py-3 px-3 font-semibold text-secondary">目标</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">目标金额</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">剩余年限</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">假设收益率</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">现有资产增值</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">月储蓄需求</th>
+            <th class="text-center py-3 px-3 font-semibold text-secondary">风险等级</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+          <tr style="background:var(--accent-light)">
+            <td class="py-4 px-3 font-bold">合计</td>
+            <td class="text-center py-4 px-3 font-extrabold">${fmt(totalTarget)}</td>
+            <td class="text-center py-4 px-3 text-muted">—</td>
+            <td class="text-center py-4 px-3 text-muted">—</td>
+            <td class="text-center py-4 px-3 text-secondary">${fmtFull(Math.round(totalFV))}</td>
+            <td class="text-center py-4 px-3 font-extrabold" style="color:var(--accent)">${fmtFull(totalMonthlyRequired)}</td>
+            <td class="text-center py-4 px-3 text-muted">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-5 p-5 rounded-xl" style="background:${isFeasible ? 'var(--success-light)' : 'var(--danger-light)'};border:1px solid ${isFeasible ? 'var(--success)' : 'var(--danger)'}">
+      <div class="flex items-start gap-3">
+        <span class="text-2xl">${isFeasible ? '✅' : '⚠️'}</span>
+        <div>
+          <p class="font-bold" style="color:${isFeasible ? 'var(--success)' : 'var(--danger)'}">${isFeasible ? '目标可行！' : '资金缺口'}</p>
+          <p class="text-sm mt-1 text-secondary">
+            ${isFeasible
+              ? `月储蓄需求 ${fmtFull(totalMonthlyRequired)} 低于月可储蓄 ${fmtFull(monthlySavings)}，每月盈余 <strong style="color:var(--success)">${fmtFull(gap)}</strong> 可用于加速退休目标`
+              : `月储蓄需求 <strong style="color:var(--danger)">${fmtFull(totalMonthlyRequired)}</strong> 超出月可储蓄 ${fmtFull(monthlySavings)}，缺口 <strong style="color:var(--danger)">${fmtFull(Math.abs(gap))}/月</strong>`
+            }
+          </p>
+          ${isFeasible ? `<p class="text-xs mt-2 text-muted">💡 现有资产30万有效降低了月储蓄压力约 ${fmtFull(Math.round(calcMonthlySaving(DATA.goals[0].targetAmount, DATA.goals[0].years, DATA.goals[0].annualReturn) - DATA.goals[0].monthlyRequired))}/月</p>` : `<p class="text-xs mt-2 text-muted">💡 需要通过延后目标、降低金额或压缩支出来弥补缺口</p>`}
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 p-4 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+      <p class="text-xs font-semibold mb-2">📐 计算公式说明</p>
+      <p class="text-xs text-secondary">月储蓄 = (目标金额 − 现有资产×(1+收益率)^年限) × 月利率 / [(1+月利率)^{(年限×12)} − 1]</p>
+      <p class="text-xs text-muted mt-1">即：先计算现有资产到期末的复利增值，从目标金额中扣除后，剩余部分用年金公式计算每月需存金额</p>
+    </div>
+  `;
+}
+
+function renderPhase() {
+  const el = document.getElementById('phaseSection');
+  const phases = [
+    {
+      label: '第一阶段', period: '第1-5年', color: '#2563eb', bg: 'var(--info-light)',
+      desc: '三个目标同时推进',
+      items: DATA.goals.map(g => `${g.icon} ${g.name}：${fmtFull(g.monthlyRequired)}/月`).concat([`💰 月盈余：${fmtFull(gap)}/月 → 自动加入退休储蓄`]),
+      total: totalMonthlyRequired + (gap > 0 ? gap : 0),
+    },
+    {
+      label: '第二阶段', period: '第6-12年', color: '#b8860b', bg: 'var(--accent-light)',
+      desc: '购房完成，释放资金加速教育和退休',
+      items: (() => {
+        const houseFreed = DATA.goals[0].monthlyRequired + (gap > 0 ? gap : 0);
+        const retNew = DATA.goals[2].monthlyRequired + houseFreed;
+        return [
+          `🏠 购房已完成，释放 ${fmtFull(houseFreed)}/月`,
+          `🎓 教育：${fmtFull(DATA.goals[1].monthlyRequired)}/月（不变）`,
+          `🏖️ 退休：${fmtFull(retNew)}/月（+${fmtFull(houseFreed)}）`,
+        ];
+      })(),
+      total: monthlySavings,
+    },
+    {
+      label: '第三阶段', period: '第13-25年', color: '#dc2626', bg: 'var(--danger-light)',
+      desc: '教育完成，全力冲刺退休',
+      items: [
+        `🏠 购房已完成`,
+        `🎓 教育已完成，释放 ${fmtFull(DATA.goals[1].monthlyRequired)}/月`,
+        `🏖️ 退休：${fmtFull(monthlySavings)}/月（全部储蓄投入）`,
+      ],
+      total: monthlySavings,
+    },
+  ];
+
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">🔄</div>
+      <div>
+        <h2 class="text-xl font-bold">分阶段储蓄策略</h2>
+        <p class="text-xs text-muted">目标完成后释放的储蓄自动转入下一优先级目标</p>
+      </div>
+    </div>
+    <div class="space-y-4">
+      ${phases.map(p => `
+        <div class="p-5 rounded-xl" style="background:${p.bg};border:1px solid ${p.color}">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="phase-badge" style="background:${p.color};color:white">${p.label}</span>
+            <span class="text-sm font-semibold">${p.period}</span>
+            <span class="text-xs text-muted">· ${p.desc}</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-2">
+            ${p.items.map(item => `<p class="text-sm text-secondary">• ${item}</p>`).join('')}
+          </div>
+          <div class="mt-3 pt-3" style="border-top:1px solid ${p.color}30">
+            <p class="text-sm font-semibold">月储蓄合计：<strong style="color:${p.color}">${fmtFull(p.total)}</strong> / 可储蓄 ${fmtFull(monthlySavings)}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="mt-4 p-4 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+      <p class="text-sm font-semibold mb-2">🚀 分阶段策略的优势</p>
+      <p class="text-sm text-secondary">通过储蓄再分配，退休目标在第三阶段可获得 <strong style="color:var(--accent)">${fmtFull(monthlySavings)}/月</strong> 的全额投入，远超初始的 ${fmtFull(DATA.goals[2].monthlyRequired)}/月。这意味着退休基金的实际积累速度将远超独立计算的结果。</p>
+    </div>
+  `;
+}
+
+function renderPriority() {
+  const el = document.getElementById('prioritySection');
+  const houseMonthlyAlone = Math.round(calcMonthlySaving(600000, 5, 0.035));
+  const eduMonthlyAlone = Math.round(calcMonthlySaving(1500000, 12, 0.06));
+  const retMonthlyAlone = Math.round(calcMonthlySaving(3000000, 25, 0.08));
+  const totalAlone = houseMonthlyAlone + eduMonthlyAlone + retMonthlyAlone;
+  const gapAlone = monthlySavings - totalAlone;
+
+  const ret30 = Math.round(calcMonthlySaving(3000000, 30, 0.08));
+  const plan1Total = DATA.goals[0].monthlyRequired + DATA.goals[1].monthlyRequired + ret30;
+
+  const ret20 = Math.round(calcMonthlySaving(3000000, 20, 0.08));
+  const plan2Total = DATA.goals[0].monthlyRequired + DATA.goals[1].monthlyRequired + ret20;
+
+  const plans = [
+    {
+      icon: '⏰', title: '方案一：延后退休5年', tag: '推荐', tagColor: 'var(--success)', tagBg: 'var(--success-light)',
+      desc: '将退休目标从25年延后至30年，月储蓄需求大幅降低',
+      detail: `调整后月需求：${fmtFull(DATA.goals[0].monthlyRequired)} + ${fmtFull(DATA.goals[1].monthlyRequired)} + ${fmtFull(ret30)} = <strong style="color:var(--success)">${fmtFull(plan1Total)}</strong>`,
+      impact: `月减少 ${fmtFull(totalMonthlyRequired - plan1Total)}，盈余增至 ${fmtFull(monthlySavings - plan1Total)}/月`,
+    },
+    {
+      icon: '📉', title: '方案二：降低目标金额', tag: '可行', tagColor: 'var(--info)', tagBg: 'var(--info-light)',
+      desc: '购房首付降至50万，教育基金降至120万，退休金降至240万',
+      detail: `调整后月需求约 <strong style="color:var(--info)">${fmtFull(Math.round(calcMonthlySaving(500000 - calcFV(300000, 5, 0.035), 5, 0.035) + calcMonthlySaving(1200000, 12, 0.06) + calcMonthlySaving(2400000, 25, 0.08)))}</strong>`,
+      impact: '目标金额降低20%，月储蓄压力显著减轻',
+    },
+    {
+      icon: '✂️', title: '方案三：压缩月支出', tag: '辅助', tagColor: 'var(--accent)', tagBg: 'var(--accent-light)',
+      desc: '将月支出从¥10,000压缩至¥8,000，每月多储蓄¥2,000',
+      detail: `调整后月可储蓄 <strong style="color:var(--accent)">${fmtFull(monthlySavings + 2000)}</strong>，配合分阶段策略效果更佳`,
+      impact: '月增加 ¥2,000 储蓄，年多存 ¥2.4万',
+    },
+  ];
+
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">⚖️</div>
+      <div>
+        <h2 class="text-xl font-bold">目标优先级与优化方案</h2>
+        <p class="text-xs text-muted">按优先级排列，提供多种调整方案</p>
+      </div>
+    </div>
+    <div class="mb-6">
+      <p class="text-sm font-medium mb-3 text-secondary">优先级排序</p>
+      <div class="flex items-center gap-3 flex-wrap">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold" style="background:var(--danger-light);color:var(--danger);border:1px solid var(--danger)">
+          <span class="tag" style="background:white;color:var(--danger)">P1</span>
+          🏠 购房 <span class="text-xs font-normal opacity-70">刚性需求</span>
+        </div>
+        <span class="text-muted text-lg">→</span>
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold" style="background:var(--accent-light);color:var(--accent);border:1px solid var(--accent)">
+          <span class="tag" style="background:white;color:var(--accent)">P2</span>
+          🎓 教育 <span class="text-xs font-normal opacity-70">刚性需求</span>
+        </div>
+        <span class="text-muted text-lg">→</span>
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold" style="background:var(--info-light);color:var(--info);border:1px solid var(--info)">
+          <span class="tag" style="background:white;color:var(--info)">P3</span>
+          🏖️ 退休 <span class="text-xs font-normal opacity-70">可调整</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 rounded-xl mb-5" style="background:var(--bg-sub);border:1px solid var(--border)">
+      <p class="text-sm text-secondary">📊 <strong>若无现有资产</strong>，月储蓄需求为 ${fmtFull(totalAlone)}，超出可储蓄 ${fmtFull(monthlySavings)}，缺口 ${fmtFull(Math.abs(gapAlone))}/月。<strong>现有资产30万使方案从"不可行"变为"可行"</strong>。</p>
+    </div>
+    <p class="text-sm font-medium mb-3 text-secondary">优化方案</p>
+    <div class="space-y-4">
+      ${plans.map(p => `
+        <div class="p-5 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+          <div class="flex items-start gap-4">
+            <div class="text-3xl flex-shrink-0">${p.icon}</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <p class="font-bold">${p.title}</p>
+                <span class="tag" style="background:${p.tagBg};color:${p.tagColor}">${p.tag}</span>
+              </div>
+              <p class="text-sm text-secondary">${p.desc}</p>
+              <div class="mt-2 p-3 rounded-lg text-sm" style="background:var(--card-bg);border:1px solid var(--border)">${p.detail}</div>
+              <p class="text-xs mt-2 font-medium" style="color:var(--success)">${p.impact}</p>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderStrategy() {
+  const el = document.getElementById('strategySection');
+  const cards = DATA.goals.map(g => {
+    const timeLabel = g.years <= 5 ? '短期保本' : g.years <= 10 ? '中期平衡' : '长期增值';
+    const tipText = g.years <= 5
+      ? `${g.years}年内需用款，优先保本，不追求高收益`
+      : g.years <= 10
+      ? `${g.years}年投资期可承受中等波动，股债平衡获取稳健收益`
+      : `${g.years}年长期投资可承受短期波动，追求复利增值效应`;
+
+    return `
+    <div class="p-5 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">${g.icon}</span>
+          <div>
+            <p class="font-bold">${g.name}（${g.years}年）</p>
+            <p class="text-xs text-muted">时间跨度匹配：${timeLabel}</p>
+          </div>
+        </div>
+        <span class="tag" style="background:${g.riskColor}20;color:${g.riskColor}">${g.riskLevel}</span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mb-4">
+        <div class="text-center p-3 rounded-lg" style="background:var(--card-bg);border:1px solid var(--border)">
+          <p class="text-xs text-muted">现金/货基</p>
+          <p class="text-xl font-extrabold" style="color:#16a34a">${g.allocation.cash}%</p>
+        </div>
+        <div class="text-center p-3 rounded-lg" style="background:var(--card-bg);border:1px solid var(--border)">
+          <p class="text-xs text-muted">债券基金</p>
+          <p class="text-xl font-extrabold" style="color:#2563eb">${g.allocation.bond}%</p>
+        </div>
+        <div class="text-center p-3 rounded-lg" style="background:var(--card-bg);border:1px solid var(--border)">
+          <p class="text-xs text-muted">指数/股基</p>
+          <p class="text-xl font-extrabold" style="color:${g.riskColor}">${g.allocation.equity}%</p>
+        </div>
+      </div>
+      <div class="alloc-bar mb-3">
+        <div style="width:${g.allocation.cash}%;background:#16a34a"></div>
+        <div style="width:${g.allocation.bond}%;background:#2563eb"></div>
+        <div style="width:${g.allocation.equity}%;background:${g.riskColor}"></div>
+      </div>
+      <div class="flex justify-between text-xs text-muted mb-3">
+        <span>现金 ${g.allocation.cash}%</span>
+        <span>债券 ${g.allocation.bond}%</span>
+        <span>权益 ${g.allocation.equity}%</span>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        ${g.products.map(p => `<span class="tag" style="background:${g.riskColor}10;color:${g.riskColor};border:1px solid ${g.riskColor}30">${p}</span>`).join('')}
+      </div>
+      <p class="text-xs text-muted">💡 ${tipText}。预期年化 ${(g.annualReturn * 100).toFixed(1)}%</p>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">📊</div>
+      <div>
+        <h2 class="text-xl font-bold">分目标资产配置策略</h2>
+        <p class="text-xs text-muted">按剩余年限自动匹配风险等级和资产类型</p>
+      </div>
+    </div>
+    <div class="space-y-5">${cards}</div>
+  `;
+}
+
+function renderMilestones() {
+  const el = document.getElementById('milestoneSection');
+  const milestones = [
+    { year: 1, label: '2027年', title: '建立储蓄习惯', desc: '完成初始资产配置，开始定投', check: '累计储蓄达 ¥18万', color: '#16a34a', icon: '1' },
+    { year: 3, label: '2029年', title: '首次复盘', desc: '检查购房进度，评估市场环境', check: '购房资金累计达 ¥38万', color: '#b8860b', icon: '2' },
+    { year: 5, label: '2031年', title: '🎯 购房目标达成', desc: '首付到位，释放储蓄加速教育和退休', check: '购房首付 ¥60万 到位', color: '#2563eb', icon: '3' },
+    { year: 8, label: '2034年', title: '中期检查', desc: '评估教育基金进度，调整权益比例', check: '教育基金累计达 ¥80万', color: '#7c3aed', icon: '4' },
+    { year: 12, label: '2038年', title: '🎯 教育目标达成', desc: '教育基金到位，全力冲刺退休目标', check: '教育基金 ¥150万 到位', color: '#b8860b', icon: '5' },
+    { year: 18, label: '2044年', title: '退休冲刺', desc: '加大权益配置，利用复利加速积累', check: '退休基金累计达 ¥200万', color: '#ec4899', icon: '6' },
+    { year: 25, label: '2051年', title: '🎯 退休目标达成', desc: '实现财务自由，月被动收入 ¥10,000', check: '退休基金 ¥300万 到位', color: '#dc2626', icon: '7' },
+  ];
+
+  el.innerHTML = `
+    <div class="flex items-center gap-3 mb-5">
+      <div class="section-icon" style="background:var(--accent-light)">🚩</div>
+      <div>
+        <h2 class="text-xl font-bold">里程碑检查点</h2>
+        <p class="text-xs text-muted">每3-5年设置检查点，提醒复盘调整</p>
+      </div>
+    </div>
+    <div class="relative pl-6">
+      <div class="timeline-line"></div>
+      ${milestones.map(m => `
+        <div class="flex gap-4 items-start mb-6 relative" style="z-index:2">
+          <div class="milestone-dot" style="background:${m.color};color:white">${m.icon}</div>
+          <div class="flex-1 p-4 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <p class="font-bold">${m.title}</p>
+              <span class="tag" style="background:${m.color}20;color:${m.color}">第${m.year}年 · ${m.label}</span>
+            </div>
+            <p class="text-sm text-secondary">${m.desc}</p>
+            <p class="text-xs mt-2 text-muted">📌 检查点：${m.check}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function initCharts() {
+  const isDark = document.documentElement.classList.contains('dark');
+  const textColor = isDark ? '#8b9ab5' : '#6b7280';
+  const lineColor = isDark ? '#2a3548' : '#e5e7eb';
+
+  const timelineChart = echarts.init(document.getElementById('timelineChart'));
+  const years = Array.from({length: 26}, (_, i) => `第${i}年`);
+
+  const series = DATA.goals.map((goal, idx) => {
+    const data = goal.accumulation.map(v => Math.round(v / 10000));
+    while (data.length < 26) data.push(null);
+
+    return {
+      name: goal.name,
+      type: 'line',
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 6,
+      lineStyle: { width: 3 },
+      areaStyle: { opacity: 0.08 },
+      data: data,
+      markLine: {
+        silent: true,
+        symbol: 'none',
+        lineStyle: { type: 'dashed', width: 2 },
+        data: [{
+          xAxis: goal.years,
+          label: {
+            formatter: `${goal.icon} ${goal.name}达成`,
+            color: goal.riskColor,
+            fontSize: 11,
+          },
+          lineStyle: { color: goal.riskColor },
+        }],
+      },
+      markPoint: {
+        data: [{
+          coord: [goal.years, Math.round(goal.targetAmount / 10000)],
+          symbol: 'pin',
+          symbolSize: 40,
+          itemStyle: { color: goal.riskColor },
+          label: { show: true, formatter: '✓', color: '#fff', fontSize: 14, fontWeight: 'bold' },
+        }],
+      },
+    };
+  });
+
+  const phasedTotal = phasedResult.yearlyData.map(d => {
+    const active = d.goals.reduce((s, g) => s + g.balance, 0);
+    return Math.round(active / 10000);
+  });
+
+  series.push({
+    name: '总资产（含已完成）',
+    type: 'line',
+    smooth: true,
+    symbol: 'none',
+    lineStyle: { width: 2, type: 'dashed' },
+    areaStyle: { opacity: 0.04 },
+    data: phasedTotal,
+    itemStyle: { color: isDark ? '#f0c040' : '#b8860b' },
+  });
+
+  timelineChart.setOption({
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: isDark ? '#1a2332' : '#fff',
+      borderColor: isDark ? '#2a3548' : '#e5e7eb',
+      textStyle: { color: isDark ? '#e8edf5' : '#1a1a1a', fontSize: 12 },
+      formatter: params => {
+        let html = `<strong>${params[0].axisValue}</strong><br/>`;
+        params.forEach(p => {
+          if (p.value != null) html += `${p.marker} ${p.seriesName}：<strong>¥${p.value}万</strong><br/>`;
+        });
+        return html;
+      },
+    },
+    legend: {
+      top: 0,
+      textStyle: { color: textColor, fontSize: 12 },
+    },
+    grid: { left: 65, right: 20, top: 45, bottom: 45 },
+    xAxis: {
+      type: 'category',
+      data: years,
+      axisLabel: { color: textColor, fontSize: 10, rotate: 45 },
+      axisLine: { lineStyle: { color: lineColor } },
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: textColor, fontSize: 11, formatter: '¥{value}万' },
+      splitLine: { lineStyle: { color: lineColor, type: 'dashed' } },
+    },
+    series,
+    color: ['#2563eb', '#b8860b', '#dc2626', isDark ? '#f0c040' : '#b8860b'],
+  });
+
+  const summaryEl = document.getElementById('timelineSummary');
+  summaryEl.innerHTML = DATA.goals.map(g => `
+    <div class="text-center p-4 rounded-xl" style="background:${g.riskColor}10;border:1px solid ${g.riskColor}30">
+      <p class="text-xs text-muted">第${g.years}年 · ${g.name}</p>
+      <p class="text-xl font-extrabold" style="color:${g.riskColor}">¥${fmt(g.targetAmount)}</p>
+      <p class="text-xs" style="color:var(--success)">✓ 目标达成</p>
+    </div>
+  `).join('');
+
+  const totalTarget = DATA.goals.reduce((s, g) => s + g.targetAmount, 0);
+  const weightedCash = DATA.goals.reduce((s, g) => s + g.allocation.cash * g.targetAmount / totalTarget, 0);
+  const weightedBond = DATA.goals.reduce((s, g) => s + g.allocation.bond * g.targetAmount / totalTarget, 0);
+  const weightedEquity = DATA.goals.reduce((s, g) => s + g.allocation.equity * g.targetAmount / totalTarget, 0);
+  const weightedReturn = DATA.goals.reduce((s, g) => s + g.annualReturn * g.targetAmount / totalTarget, 0);
+
+  const combinedChart = echarts.init(document.getElementById('combinedChart'));
+  combinedChart.setOption({
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {d}%',
+      backgroundColor: isDark ? '#1a2332' : '#fff',
+      borderColor: isDark ? '#2a3548' : '#e5e7eb',
+      textStyle: { color: isDark ? '#e8edf5' : '#1a1a1a' },
+    },
+    series: [{
+      type: 'pie',
+      radius: ['40%', '72%'],
+      center: ['50%', '48%'],
+      avoidLabelOverlap: true,
+      itemStyle: { borderRadius: 8, borderColor: isDark ? '#1a2332' : '#fff', borderWidth: 3 },
+      label: {
+        show: true,
+        formatter: '{b}\n{d}%',
+        fontSize: 12,
+        color: textColor,
+      },
+      data: [
+        { value: Math.round(weightedCash), name: '现金/货基', itemStyle: { color: '#16a34a' } },
+        { value: Math.round(weightedBond), name: '债券基金', itemStyle: { color: '#2563eb' } },
+        { value: Math.round(weightedEquity), name: '指数/股基', itemStyle: { color: '#b8860b' } },
+      ],
+    }],
+  });
+
+  const detailEl = document.getElementById('combinedDetail');
+  detailEl.innerHTML = `
+    <div class="space-y-4">
+      <div class="p-4 rounded-xl" style="background:var(--bg-sub);border:1px solid var(--border)">
+        <p class="text-sm font-semibold mb-3">加权配置比例</p>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span style="color:#16a34a">● 现金/货基</span>
+              <span class="font-bold">${Math.round(weightedCash)}%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:${Math.round(weightedCash)}%;background:#16a34a"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span style="color:#2563eb">● 债券基金</span>
+              <span class="font-bold">${Math.round(weightedBond)}%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:${Math.round(weightedBond)}%;background:#2563eb"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span style="color:#b8860b">● 指数/股基</span>
+              <span class="font-bold">${Math.round(weightedEquity)}%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:${Math.round(weightedEquity)}%;background:#b8860b"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl" style="background:var(--accent-light);border:1px solid var(--accent)">
+        <p class="font-bold" style="color:var(--accent)">综合预期收益</p>
+        <p class="text-2xl font-extrabold mt-1" style="color:var(--accent)">${(weightedReturn * 100).toFixed(1)}%</p>
+        <p class="text-sm text-secondary mt-1">加权年化收益率，30万资产年预期收益约 <strong style="color:var(--success)">${fmtFull(Math.round(DATA.currentAssets * weightedReturn))}</strong></p>
+        <p class="text-xs text-muted mt-2">📐 计算：各目标收益率 × 目标金额占比，加权平均</p>
+      </div>
+    </div>
+  `;
+
+  window.addEventListener('resize', () => {
+    timelineChart.resize();
+    combinedChart.resize();
+  });
+
+  window._charts = [timelineChart, combinedChart];
+}
+
+function toggleTheme() {
+  document.documentElement.classList.toggle('dark');
+  const btn = document.getElementById('themeToggle');
+  btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  if (window._charts) {
+    window._charts.forEach(c => c.dispose());
+  }
+  initCharts();
+}
+
+renderOverview();
+renderAction();
+renderPhase();
+renderPriority();
+renderStrategy();
+renderMilestones();
+initCharts();
+</script>
+</body>
+</html>

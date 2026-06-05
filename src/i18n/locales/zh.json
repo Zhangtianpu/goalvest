@@ -1,0 +1,569 @@
+{
+  "nav": {
+    "financialProfile": "财务状况",
+    "assetAllocation": "配置方案",
+    "futureProjection": "未来预测"
+  },
+  "common": {
+    "monthly": "月",
+    "annual": "年",
+    "year": "年",
+    "years": "年",
+    "currency": "¥",
+    "percent": "%",
+    "language": "语言",
+    "english": "英文",
+    "chinese": "中文",
+    "advertisement": "广告"
+  },
+  "layout": {
+    "appName": "Goalvest",
+    "appSubtitle": "目标导向型资产规划",
+    "dataPrivacy": "💡 数据仅保存在本地浏览器中，不会上传至任何服务器"
+  },
+  "footer": {
+    "about": "关于我们",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "allRightsReserved": "版权所有"
+  },
+  "seo": {
+    "default": {
+      "title": "Goalvest - 目标导向型资产规划",
+      "description": "智能资产配置工具，帮助您制定个性化的投资组合方案。支持财务状况分析、资产配置优化、未来收益预测。"
+    },
+    "finance": {
+      "title": "财务状况分析 - Goalvest",
+      "description": "全面分析您的财务状况，包括收入、支出、资产和负债，为科学的资产配置奠定基础。"
+    },
+    "allocation": {
+      "title": "资产配置方案 - Goalvest",
+      "description": "根据您的风险偏好和财务目标，生成个性化的资产配置方案，优化投资组合结构。"
+    },
+    "projection": {
+      "title": "未来收益预测 - Goalvest",
+      "description": "基于历史数据和资产配置方案，预测未来资产增长趋势，助您实现财务目标。"
+    },
+    "privacy": {
+      "title": "隐私政策 - Goalvest",
+      "description": "了解 Goalvest 如何保护您的隐私，包括数据收集、Cookie 使用和第三方服务说明。"
+    },
+    "terms": {
+      "title": "使用条款 - Goalvest",
+      "description": "Goalvest 使用条款，包括服务说明、免责声明、用户责任和知识产权说明。"
+    },
+    "about": {
+      "title": "关于我们 - Goalvest",
+      "description": "了解 Goalvest - 目标导向型资产规划工具，帮助您制定个性化的投资组合方案。"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "免费在线工具",
+      "title": "智能资产配置，助力财务目标",
+      "subtitle": "Goalvest 帮助您分析财务状况、制定科学的资产配置方案、预测未来财富增长。所有数据仅保存在您的浏览器中——完全私密、完全免费。",
+      "getStarted": "免费开始",
+      "learnMore": "了解更多"
+    },
+    "stats": {
+      "free": "永久免费",
+      "noUpload": "数据上传",
+      "tools": "核心工具"
+    },
+    "features": {
+      "title": "强大的财务工具",
+      "subtitle": "规划财务未来所需的一切，尽在掌握。",
+      "financial": {
+        "title": "财务状况分析",
+        "description": "通过直观的分析工具，全面了解您的财务健康状况。",
+        "item1": "收入支出追踪",
+        "item2": "储蓄率分析",
+        "item3": "现金流可视化"
+      },
+      "allocation": {
+        "title": "资产配置方案",
+        "description": "根据您的风险承受能力和目标，构建多元化投资组合。",
+        "item1": "多种预设模板",
+        "item2": "自定义配置选项",
+        "item3": "预期收益计算"
+      },
+      "projection": {
+        "title": "未来收益预测",
+        "description": "查看不同策略下您的财富如何随时间增长。",
+        "item1": "复利/单利模式",
+        "item2": "逐年收益明细",
+        "item3": "收益构成分析"
+      }
+    },
+    "why": {
+      "title": "为什么选择 Goalvest？",
+      "privacy": {
+        "title": "100% 隐私保护",
+        "description": "所有数据仅保存在您的浏览器中。我们绝不会将任何信息上传或存储到服务器。"
+      },
+      "scientific": {
+        "title": "科学方法论",
+        "description": "基于现代投资组合理论和生命周期投资原则，实现最优资产配置。"
+      },
+      "free": {
+        "title": "完全免费",
+        "description": "无隐藏费用，无高级版计划。所有功能对所有人免费开放。"
+      },
+      "easy": {
+        "title": "简单易用",
+        "description": "直观的界面设计，适合所有人。无需金融专业知识即可上手。"
+      }
+    },
+    "cta": {
+      "title": "准备好规划您的财务未来了吗？",
+      "subtitle": "今天就开始您的财务自由之旅。只需几分钟即可设置您的个性化方案。",
+      "button": "立即开始规划"
+    }
+  },
+  "about": {
+    "title": "关于 Goalvest",
+    "subtitle": "目标导向型资产规划工具",
+    "backToHome": "返回首页",
+    "intro": {
+      "title": "产品介绍",
+      "desc1": "Goalvest 是一款专注于目标导向型资产规划的免费在线工具。我们的使命是帮助每一位用户更清晰地了解自己的财务状况，制定合理的资产配置方案，并规划未来的财务目标。",
+      "desc2": "与传统的理财工具不同，Goalvest 采用目标导向的设计理念，从用户的实际需求出发，提供个性化的资产配置建议，帮助用户实现财务自由的目标。"
+    },
+    "features": {
+      "title": "核心功能",
+      "financialAnalysis": "财务状况分析",
+      "financialAnalysisDesc": "直观展示收入、支出和储蓄情况，帮助您了解自己的财务健康度。",
+      "assetAllocation": "资产配置方案",
+      "assetAllocationDesc": "基于现代投资组合理论，提供适合您风险偏好的资产配置建议。",
+      "futureProjection": "未来预测",
+      "futureProjectionDesc": "模拟不同投资策略下的资产增长曲线，规划您的财务未来。",
+      "savingsEvaluation": "储蓄能力评估",
+      "savingsEvaluationDesc": "分析您的储蓄率，提供改善财务状况的实用建议。"
+    },
+    "technicalPrinciples": {
+      "title": "技术原理",
+      "intro": "Goalvest 的资产配置建议基于以下核心投资理论：",
+      "mptTitle": "现代投资组合理论（MPT）：",
+      "mptDesc": "通过分散投资降低风险，在给定风险水平下追求最大收益。",
+      "lifecycleTitle": "生命周期投资策略：",
+      "lifecycleDesc": "根据年龄调整风险资产配置比例，年轻时承担更多风险，年长时趋于保守。",
+      "goalTitle": "目标导向规划：",
+      "goalDesc": "以目标为出发点，倒推所需的储蓄和投资策略。",
+      "noteTitle": "注意：",
+      "noteDesc": "以上理论仅供参考，实际投资决策应考虑个人具体情况和市场环境。"
+    },
+    "privacy": {
+      "title": "隐私保护",
+      "intro": "我们深知财务数据的敏感性，因此采取了最严格的隐私保护措施：",
+      "item1": "所有数据仅保存在您的本地浏览器中",
+      "item2": "不收集、不上传、不存储任何用户数据到服务器",
+      "item3": "无需注册账户，无需提供个人信息",
+      "item4": "您可以随时清除浏览器数据来删除所有信息"
+    },
+    "team": {
+      "title": "团队介绍",
+      "intro": "Goalvest 由一群热爱金融科技的独立开发者创建。我们的团队成员来自金融、技术和产品设计领域，致力于将专业的财务规划工具带给每一个人。",
+      "visionTitle": "我们的愿景",
+      "visionDesc": "让每一个人都能轻松进行财务规划，实现自己的财务目标。我们相信，好的工具应该简单易用、保护隐私，并且对所有人免费开放。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "intro": "如果您有任何问题、建议或反馈，欢迎联系我们：",
+      "general": "一般咨询",
+      "support": "技术支持"
+    }
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "lastUpdate": "最后更新：2025年1月",
+    "backToHome": "返回首页",
+    "dataCollection": {
+      "title": "数据收集说明",
+      "intro": "Goalvest 是一款目标导向型资产规划工具。我们高度重视您的隐私，并承诺以最透明的方式处理您的数据。",
+      "whatWeCollect": "我们收集的数据：",
+      "financialInfo": "财务信息：收入、支出、现有资产等数据",
+      "personalSettings": "个人设置：年龄、投资偏好等配置信息",
+      "usagePreferences": "使用偏好：界面主题、显示模式等设置",
+      "importantPromise": "重要承诺",
+      "promiseDesc": "您的所有数据仅保存在本地浏览器中，使用 localStorage 技术。我们不会将您的任何个人数据上传至服务器或第三方服务。您可以随时清除浏览器数据来删除所有存储的信息。"
+    },
+    "cookies": {
+      "title": "Cookie 和本地存储",
+      "intro": "为了提供更好的用户体验，我们使用以下本地存储技术：",
+      "localStorageTitle": "localStorage：",
+      "localStorageDesc": "用于保存您的财务数据和设置，以便下次访问时自动恢复。",
+      "sessionStorageTitle": "Session Storage：",
+      "sessionStorageDesc": "用于临时保存会话期间的浏览状态。",
+      "cookiesTitle": "Cookies：",
+      "cookiesDesc": "用于支持第三方服务（如 Google AdSense）的正常运行。"
+    },
+    "thirdParty": {
+      "title": "第三方服务",
+      "intro": "我们使用以下第三方服务来支持应用的运行和改进：",
+      "googleAdSense": "Google AdSense",
+      "adSenseDesc1": "我们使用 Google AdSense 在应用中展示广告。Google AdSense 可能会使用 Cookie 来展示个性化广告。您可以访问",
+      "googleAdSettings": "Google 广告设置",
+      "adSenseDesc2": "来管理您的广告偏好。",
+      "googlePrivacyInfo": "有关 Google 如何使用数据的更多信息，请参阅",
+      "googlePrivacyPolicy": "Google 隐私政策"
+    },
+    "userRights": {
+      "title": "用户权利",
+      "intro": "您对您的数据拥有完全的控制权：",
+      "accessTitle": "访问权：",
+      "accessDesc": "您可以随时查看存储在本地的所有数据。",
+      "deleteTitle": "删除权：",
+      "deleteDesc": "您可以清除浏览器数据来删除所有信息。",
+      "exportTitle": "导出权：",
+      "exportDesc": "您可以截图或记录您的规划结果。",
+      "controlTitle": "控制权：",
+      "controlDesc": "您的数据完全由您自己掌控，不涉及任何服务器端存储。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "intro": "如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：",
+      "email": "电子邮件"
+    },
+    "updates": {
+      "title": "隐私政策更新",
+      "desc": "我们可能会不时更新本隐私政策。更新后的政策将在本页面发布，建议您定期查看以了解最新信息。重大变更时，我们会在应用内进行通知。"
+    }
+  },
+  "terms": {
+    "title": "使用条款",
+    "lastUpdate": "最后更新：2025年1月",
+    "backToHome": "返回首页",
+    "service": {
+      "title": "服务说明",
+      "intro": "Goalvest 是一款目标导向型资产规划工具，旨在帮助用户进行个人财务规划和资产配置分析。本应用提供的功能包括但不限于：",
+      "feature1": "财务状况分析与可视化",
+      "feature2": "资产配置方案建议",
+      "feature3": "未来财务预测与规划",
+      "feature4": "储蓄能力评估",
+      "freeTool": "本服务为免费工具，我们保留随时修改或终止服务的权利，恕不另行通知。"
+    },
+    "disclaimer": {
+      "title": "重要免责声明",
+      "notInvestmentAdvice": "本应用不提供投资建议。",
+      "notInvestmentAdviceDesc": "Goalvest 提供的所有信息、分析结果和资产配置建议仅供参考和教育目的，不构成任何形式的投资建议、金融建议或专业财务咨询。",
+      "investmentRisk": "投资涉及风险，过往表现不代表未来收益。在做出任何投资决策之前，您应该：",
+      "consultAdvisor": "咨询持牌的财务顾问或投资专业人士",
+      "understandRisk": "充分了解相关投资产品的风险",
+      "personalDecision": "根据自身财务状况和风险承受能力做出决策",
+      "noLiability": "我们对因使用本应用而产生的任何直接或间接损失不承担任何责任。"
+    },
+    "userResponsibility": {
+      "title": "用户责任",
+      "intro": "使用本服务时，您同意遵守以下规定：",
+      "item1": "您输入的数据应真实、准确，以确保分析结果的有效性",
+      "item2": "您不得将本服务用于任何非法或未经授权的目的",
+      "item3": "您不得尝试破坏、干扰或损害本服务的正常运行",
+      "item4": "您应对自己的账户和数据安全负责",
+      "item5": "您理解并接受本服务的局限性，不依赖于本服务做出投资决策"
+    },
+    "intellectualProperty": {
+      "title": "知识产权",
+      "intro": "Goalvest 及其所有内容、功能和设计均受著作权法和其他知识产权法律保护。",
+      "scopeTitle": "知识产权范围：",
+      "scope1": "应用名称、标识和品牌形象",
+      "scope2": "用户界面设计和视觉元素",
+      "scope3": "算法、计算逻辑和分析模型",
+      "scope4": "文字内容、图表和文档",
+      "permission": "未经我们书面许可，您不得复制、修改、传播或以其他方式使用上述知识产权。"
+    },
+    "updates": {
+      "title": "条款更新",
+      "intro": "我们保留随时修改本使用条款的权利。修改后的条款将在本页面发布，并在发布后立即生效。",
+      "continueUse": "继续使用本服务即表示您接受修改后的条款。如果您不同意修改后的条款，应停止使用本服务。"
+    },
+    "applicableLaw": {
+      "title": "适用法律",
+      "desc": "本使用条款受中华人民共和国法律管辖，并按其解释。任何与本条款相关的争议应提交至有管辖权的人民法院解决。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "intro": "如果您对本使用条款有任何疑问，请联系我们："
+    }
+  },
+  "finance": {
+    "title": "财务状况",
+    "subtitle": "输入你的收入和支出，了解你的储蓄能力",
+    "income": {
+      "title": "收入",
+      "monthlyIncome": "月收入",
+      "annualIncome": "年收入",
+      "equivalentTo": "相当于{{mode}}收入"
+    },
+    "expense": {
+      "title": "支出",
+      "monthlyExpense": "月支出",
+      "annualExpense": "年支出",
+      "equivalentTo": "相当于{{mode}}支出"
+    },
+    "assets": {
+      "title": "现有资产",
+      "totalAssets": "总资产",
+      "description": "存款、理财、股票等全部资产合计",
+      "ignoreExisting": "忽略现有资产",
+      "ignoreExistingDesc": "开启后，配置方案仅基于年度收支计算"
+    },
+    "age": {
+      "title": "年龄",
+      "currentAge": "当前年龄",
+      "yearsOld": "岁",
+      "description": "年龄影响资产配置的风险承受能力"
+    },
+    "cashflow": {
+      "title": "现金流概览",
+      "annualIncome": "年收入",
+      "expense": "支出",
+      "savings": "可储蓄",
+      "annualSavings": "年可储蓄",
+      "monthlySavings": "月可储蓄"
+    },
+    "savingsAnalysis": {
+      "title": "储蓄能力分析",
+      "savingsRate": "储蓄率",
+      "level": {
+        "dangerous": "危险",
+        "low": "偏低",
+        "healthy": "健康",
+        "excellent": "优秀",
+        "outstanding": "卓越"
+      },
+      "tips": {
+        "dangerous": "您的储蓄率过低，建议减少不必要的开支以增加储蓄。",
+        "low": "您的储蓄率偏低，建议努力提高到20%以上。",
+        "healthy": "您的储蓄率健康，继续保持良好的储蓄习惯！",
+        "excellent": "您的储蓄率优秀，正在朝着财务目标稳步前进。",
+        "outstanding": "您的储蓄率卓越！正在快速积累财富。"
+      }
+    }
+  },
+  "allocation": {
+    "title": "资产配置",
+    "subtitle": "根据您的年度盈余，制定科学的资产配置方案",
+    "overview": {
+      "title": "资金概览",
+      "annualIncome": "年收入",
+      "annualExpense": "年支出",
+      "annualSurplus": "年盈余",
+      "existingAssets": "现有资产",
+      "totalAssets": "总资产",
+      "existingAssetsReturn": "现有资产预期收益",
+      "annualSurplusReturn": "年盈余预期收益",
+      "atRate": "按{{rate}}%年化",
+      "existingPlusSurplus": "现有资产 + 年盈余"
+    },
+    "returnFormula": {
+      "show": "查看预期收益计算公式",
+      "hide": "收起计算公式",
+      "title": "预期年化收益计算",
+      "formula": "= Σ (各类资产比例 × 各类资产预期收益率)",
+      "total": "加总 = "
+    },
+    "returnSettings": {
+      "title": "收益率设置",
+      "adjust": "调整收益率",
+      "hide": "收起",
+      "description": "根据您的预期调整各类资产的年化收益率（仅供参考）"
+    },
+    "templates": {
+      "title": "选择配置方案",
+      "subtitle": "根据您的风险承受能力选择合适的配置方案，也可自定义调整",
+      "conservative": {
+        "name": "保守型",
+        "subtitle": "适合风险厌恶者",
+        "description": "以保本为主，收益稳定，适合临近退休或风险承受能力低的人"
+      },
+      "balanced": {
+        "name": "均衡型",
+        "subtitle": "适合大多数人",
+        "description": "股债均衡，兼顾收益与风险，适合有稳定收入的中青年"
+      },
+      "growth": {
+        "name": "成长型",
+        "subtitle": "适合年轻人",
+        "description": "追求长期增值，承受较大波动，适合年轻人或投资期限长的人"
+      },
+      "custom": {
+        "name": "自定义",
+        "subtitle": "手动调整配置",
+        "description": "根据个人需求自由调整各类资产配置比例",
+        "currentCustom": "当前配置已自定义"
+      },
+      "risk": "风险：",
+      "riskLow": "低",
+      "riskMedium": "中",
+      "riskHigh": "高"
+    },
+    "details": {
+      "title": "资产配置详情",
+      "totalAllocation": "配置总额",
+      "allocationRatio": "配置比例",
+      "risk": "风险：",
+      "recommendedProducts": "推荐产品",
+      "currentPlusAnnual": "现有{{current}} + 年增{{annual}}"
+    },
+    "distribution": {
+      "title": "配置分布",
+      "amount": "💡 金额 = 现有资产分配 + 年盈余分配"
+    },
+    "expectedReturn": {
+      "title": "预期收益",
+      "annualizedReturn": "预期年化收益",
+      "existingAssetsReturn": "现有资产预期收益",
+      "annualSurplusReturn": "年盈余预期收益",
+      "totalAnnualReturn": "年度总预期收益"
+    },
+    "validation": {
+      "title": "配置建议",
+      "totalNot100": "配置比例总和应为100%，当前为{{total}}%",
+      "cashTooLow": "现金类资产建议不低于10%，以保持流动性",
+      "valid": "配置合理"
+    },
+    "suggestions": {
+      "title": "配置建议",
+      "cashLiquidity": "现金类资产建议保持10%-20%，确保流动性需求",
+      "ageRule": "根据年龄调整风险资产比例：100-年龄=权益类资产上限",
+      "rebalance": "定期再平衡：每季度检查配置比例，偏离超过5%时调整",
+      "longTerm": "长期持有：避免频繁交易，享受复利增长"
+    },
+    "assetClasses": {
+      "cash": {
+        "name": "现金/货币基金",
+        "description": "随时可取，流动性最高，收益较低",
+        "risk": "极低",
+        "return": "1.5-2.5%",
+        "products": ["余额宝", "微信零钱通", "银行活期", "货币基金"]
+      },
+      "fixed_income": {
+        "name": "固定收益类",
+        "description": "债券、银行理财等，收益稳定，风险较低",
+        "risk": "低",
+        "return": "3-4.5%",
+        "products": ["国债", "纯债基金", "银行R2理财", "定期存款"]
+      },
+      "index_fund": {
+        "name": "指数基金",
+        "description": "跟踪市场指数，长期收益可观，有波动",
+        "risk": "中高",
+        "return": "6-10%",
+        "products": ["沪深300ETF", "中证500ETF", "标普500ETF", "纳指100ETF"]
+      },
+      "stock_fund": {
+        "name": "主动股票基金",
+        "description": "基金经理选股，追求超额收益，波动较大",
+        "risk": "高",
+        "return": "8-15%",
+        "products": ["消费主题", "科技主题", "医药主题", "新能源主题"]
+      },
+      "gold": {
+        "name": "黄金",
+        "description": "避险资产，对冲通胀，与股市相关性低",
+        "risk": "中",
+        "return": "3-6%",
+        "products": ["黄金ETF", "纸黄金", "实物黄金"]
+      },
+      "insurance": {
+        "name": "保险/年金",
+        "description": "保障+储蓄，锁定长期收益，流动性差",
+        "risk": "极低",
+        "return": "2.5-3.5%",
+        "products": ["年金险", "增额终身寿", "万能险"]
+      }
+    }
+  },
+  "projection": {
+    "title": "未来资金预测",
+    "subtitle": "基于当前配置方案，预测未来资产增值情况",
+    "config": {
+      "title": "配置方案",
+      "fixedIncome": "固定收益类",
+      "equity": "权益类",
+      "fixedIncomeDesc": "现金+固收+保险",
+      "equityDesc": "指数+股票+黄金",
+      "fixedIncomeRate": "固定收益率",
+      "equityRate": "权益收益率",
+      "weightedAverage": "加权平均"
+    },
+    "rateFormula": {
+      "show": "查看收益率计算公式",
+      "hide": "收起计算公式",
+      "fixedIncomeTitle": "固定收益率计算",
+      "fixedIncomeFormula": "= (现金比例 × 现金收益率 + 固定收益比例 × 固定收益率 + 保险比例 × 保险收益率) ÷ 固定收益类总比例",
+      "equityTitle": "权益收益率计算",
+      "equityFormula": "= (指数基金比例 × 指数收益率 + 股票基金比例 × 股票收益率 + 黄金比例 × 黄金收益率) ÷ 权益类总比例",
+      "expectedAnnualReturn": "预期年化收益",
+      "formula": " = 固定收益率 × 固定收益比例 + 权益收益率 × 权益比例 = "
+    },
+    "warning": "收益率基于配置方案自动计算。如需调整配置，请前往「配置方案」页面。",
+    "settings": {
+      "title": "预测设置",
+      "interestMode": "计息方式",
+      "compound": "复利",
+      "simple": "单利",
+      "compoundDesc": "复利：收益滚入本金，利滚利",
+      "simpleDesc": "单利：收益不滚入本金",
+      "projectionYears": "预测年限",
+      "yearsUnit": " 年"
+    },
+    "chart": {
+      "title": "资产增长曲线",
+      "fixedIncome": "固定收益",
+      "equity": "权益投资",
+      "totalAssets": "总资产",
+      "unit": "{{value}}万"
+    },
+    "summary": {
+      "initialInvestment": "初始投入",
+      "initialInvestmentDesc": "现有可投资资产",
+      "annualAddition": "每年新增",
+      "annualAdditionDesc": "固收 {{fixed}} + 权益 {{equity}}",
+      "projectionYears": "{{years}}年后预测",
+      "investmentReturn": "投资收益"
+    },
+    "details": {
+      "title": "年度详情",
+      "calculationNote": "计算说明",
+      "current": "当前",
+      "lastYearEndFixed": "上年末固收总额",
+      "lastYearEndEquity": "上年末权益总额",
+      "yearStart": "年初",
+      "return": "收益",
+      "newAddition": "新增",
+      "yearStartFixed": "年初固收：",
+      "fixedReturn": "固收收益：",
+      "yearStartEquity": "年初权益：",
+      "equityReturn": "权益收益：",
+      "yearEndTotal": "年末总额：",
+      "year": "年份",
+      "age": "年龄",
+      "yearStartFixedShort": "年初固收",
+      "fixedReturnShort": "固收收益",
+      "yearStartEquityShort": "年初权益",
+      "equityReturnShort": "权益收益",
+      "yearEndTotalShort": "年末总额"
+    },
+    "analysis": {
+      "title": "收益构成分析",
+      "principalVsReturn": "本金 vs 收益",
+      "principal": "本金",
+      "return": "收益",
+      "initial": "初始",
+      "afterYears": "{{years}}年后资产构成",
+      "principalInvested": "本金投入",
+      "investmentReturn": "投资收益",
+      "fixedIncome": "固定收益",
+      "equityInvestment": "权益投资",
+      "proportion": "占比"
+    },
+    "advice": {
+      "title": "投资建议",
+      "fixedStability": "固定收益部分稳定增值，适合作为资产组合的「压舱石」",
+      "equityLongTerm": "权益投资长期收益更高，但需承受短期波动，建议持有 5 年以上",
+      "ageAdjustment": "随着年龄增长，可逐步降低权益比例，增加固定收益比例",
+      "annualReview": "每年检视一次配置，根据市场情况和个人目标调整"
+    }
+  }
+}

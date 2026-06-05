@@ -1,0 +1,11 @@
+# robots.txt for Goalvest
+# https://goalvest.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://goalvest.app/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
